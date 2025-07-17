@@ -29,14 +29,18 @@ public class Bubblesort {
 
     public static void bubblesort(int arr[], int n) {
         for (int i = 0; i < n - 1; i++) { // n-1 passes
+            int d=0;
             for (int j = 0; j < n - i - 1; j++) { // compare till n-i-1
                 if (arr[j] > arr[j + 1]) {
                     // Swap arr[j] and arr[j + 1]
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
+                    d=1;
                 }
             }
+            if(d==0)//this just checks if the array is already sorted in that case it just breaks with tc as O(n)best time complexity 
+            break;
             System.out.println("After pass " + (i + 1) + ":");
             printarray(arr);
         }
